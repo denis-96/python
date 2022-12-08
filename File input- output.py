@@ -1,6 +1,6 @@
 # ВВОД - ВЫВОД ДЛЯ ФАЙЛОВ
 #Открываем файл
-file = open('myfile.txt') #если файл в той же папке где и файл с кодом, просто указываем имя файла
+file = open('myfile.txt', encoding='utf-8') #если файл в той же папке где и файл с кодом, просто указываем имя файла
 #file = open(r'C:\Users\barga\Desktop\Python\Python projects\PythonAbstracts\myfile.txt') #если файл в другом месте, указываем путь
 
 print(file.read()) #выведет содержание файла
@@ -12,11 +12,11 @@ file.seek(0) #(seek - искать)
 text = file.readlines() #читатет файл, создаёт список и каждую строку из файла записывает как отдельный элемент списка
 file.close() #закрываем файл
 
-with open('myfile.txt') as myfile: #автоматически закроет файл после выполнения блока с отступом
+with open('myfile.txt', encoding='utf-8') as myfile: #автоматически закроет файл после выполнения блока с отступом
     contents = myfile.read()
 
 #Запись в файл
-with open('myfile.txt', mode='r') as myfile:
+with open('myfile.txt', mode='r', encoding='utf-8') as myfile:
     contents = myfile.read()
 #аргумент 'mode='  - управление доступом к файлу
 #mode= 'r' - только чтение (read)
@@ -25,7 +25,7 @@ with open('myfile.txt', mode='r') as myfile:
 #mode= 'r+' - чтение и запись
 #mode= 'w+' - запись и чтение (перезаписывает файл или создаёт новый)
 
-with open('mynewfile.txt', mode='w') as f:
+with open('mynewfile.txt', mode='w', encoding='utf-8') as f:
     f.write('One!\nTwo!\nThree!\nOne Two Three!!!')
 with open('mynewfile.txt', mode='a', encoding='utf-8') as f:
     f.write('\nОдин Два Три!!!')

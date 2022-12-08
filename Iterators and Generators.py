@@ -13,6 +13,9 @@
 
 # Функция-генератор, которая возводит числа в куб (степень 3)
 def gen_cubes(n):
+    """
+    Cubes generator
+    """
     for num in range(n):
         yield num**3
 
@@ -26,15 +29,18 @@ def gen_fibon(n):
     """
     a = 1
     b = 1
-    for i in range(n):
+    for _ in range(n):
         yield a
         a, b = b, a+b
 
-for num in gen_fibon(10):
-    print(num)
+for number in gen_fibon(10):
+    print(number)
 
 # Пример генератора таблицы умножения
 def gen_multiplication_table():
+    """
+    Multiplication table generator
+    """
     for a in range(2, 10):
         for b in range(2, 10):
             yield f'{a} x {b} = {a*b}'
@@ -47,8 +53,11 @@ for i in gen_multiplication_table():
 
 # Функция next() позволяет нам получить следующий элемент в последовательность:
 def simple_gen():
-    for x in range(3):
-        yield x
+    """
+    Simple generator
+    """
+    for value in range(3):
+        yield value
 
 # Assign simple_gen
 g = simple_gen()

@@ -3,23 +3,21 @@ import telebot
 
 
 # задаём токен своего бота
-token = '5767999922:AAGbEz9x_zPp0UCfovxfpH6AvsgwVGH30wU'
+TOKEN = '5767999922:AAGbEz9x_zPp0UCfovxfpH6AvsgwVGH30wU'
 
 
 # создаём объект класса TeleBot
-bot = telebot.TeleBot(token)
+bot = telebot.TeleBot(TOKEN)
 
 
 # задаём обработчик @bot.message_handler()
 
 @bot.message_handler(commands=['start'])
-
 # фильтры обработчика:
 # (commands= ['команда']) - проверка на ввод определённой команды
 # (func= lambda message: message.text == 'слово') - проверка на ввод определённого слова
 # (chat_types= ['тип чата']) - проверка на тип чата (privat, group, supergroup)
 # (content_types= ['тип контента']) - проверка на тип отправляемого контента (text, photo, video)
-
 def start(message):
 
     # bot.send_message(id чата, сообщение которое нужно отправить) - отправка сообщения
@@ -44,20 +42,19 @@ def start(message):
 # ОТПРАВКА ФАЙЛА
 
 @bot.message_handler(commands=['file'])
-
-def f(message):
+def photo(message):
 
     # open('путь к файлу', 'параметр открытия')
-    file = open('D:\photo.png', 'rb')
+    file = open('D:\\photo.png', 'rb')
     # (id чата, файл, сообщение под фото(необязательно))
     bot.send_photo(message.chat.id, file, 'Привет')
     # bot.send_video() - отправить видео (сообщение под видео отправить не получится)
 
 # второй способ отправки фото (через ссылку)
 
-@bot.message_handler(commands=['photo'])
 
-def photo(message):
+@bot.message_handler(commands=['photo'])
+def photo1(message):
 
     # (id чата, r'ссылка на фото')
     bot.send_photo(
@@ -67,9 +64,8 @@ def photo(message):
 # ФОРМАТИРОВАНИЕ ТЕКСТА
 
 @bot.message_handler(commands=['format'])
+def formated_message(message):
 
-def format(message):
-    
     bot.send_message(
         message.chat.id, '<b>форматированный</b> <i>текст</i>', parse_mode='HTML')
     #bot.send_message(message.chat.id, '*форматированный* _текст_', parse_mode='Markdown')

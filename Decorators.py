@@ -20,43 +20,43 @@ del hello
 # print(hello()) - это выдаст ошибку, так как функции hello() больше не существует
 # Но несмотря на то, что мы удалили имя hello, имя greet по-прежнему указывает на объект функции.
 # Очень важно знать, что функции это объекты, которые можно передавать другим объектам!
-print(greet()) # Hello Denis
+print(greet())  # Hello Denis
 
 # Функции внутри функций
 
-def hello(name='Denis'):
+def hello1():
     print('Запущена функция hello()')
 
-    def greet():
+    def greet_func():
         return '\t Мы находимся внутри функции greet()'
 
     def welcome():
         return "\t Мы находимся внутри функции welcome()"
 
-    print(greet())
+    print(greet_func())
     print(welcome())
     print("Теперь мы вернулись в функцию hello()")
 
-hello()
+hello1()
 # Вызов функций greet() и welcome() вне функции hello() выдаст ошибку.
 # Так как из-за области видимости функция welcome() и greet() не определена вне функции hello()
 
 # Возврат функций
 
-def hello(name='Denis'):
-    def greet():
+def hello2(name='Denis'):
+    def greeting():
         return '\t Мы находимся внутри функции greet()'
 
     def welcome():
         return "\t Мы находимся внутри функции welcome()"
 
     if name == 'Denis':
-        return greet
+        return greeting
     else:
         return welcome
 
 # Eсли мы установим x = hello(), будет возвращена функция greet
-x = hello()
+x = hello2()
 # x указывает на функцию greet внутри функции hello.
 print(x()) # Вывод: Мы находимся внутри функции greet()
 
@@ -70,14 +70,14 @@ print(x()) # Вывод: Мы находимся внутри функции gre
 # Функции как параметры
 
 # Мы можем передавать функции как объекты, и затем использовать их внутри других функций.
-def hello():
+def hello3():
     return 'Hi Denis!'
 
 def other(func):
     print('Здесь будет указан другой код')
     print(func())
 
-other(hello)
+other(hello3)
 
 # Создание декоратора
 
@@ -104,7 +104,7 @@ func_needs_decorator()
 # Декоратор здесь служит оберткой функции, поменяв её поведение.
 # Теперь посмотрим, как можно переписать этот код с помощью символа @, который используется в Python для декораторов:
 @new_decorator
-def func_needs_decorator():
+def func_needs_decorator1():
     print("Для этой функции нужен декоратор")
 
 func_needs_decorator()
