@@ -45,7 +45,8 @@ def login():
     elif request.method == 'POST' and request.form.get('username') == "denis" and request.form.get('psw') == "123":
         session['userLogged'] = request.form.get('username')
         return redirect(url_for('profile', username=session['userLogged']))
- 
+    elif request.method == 'POST':
+        flash('Неверное имя или пароль', category='error')
     return render_template('login.html', title="Авторизация", menu=menu)
 
 if __name__ == "__main__":

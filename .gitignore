@@ -2,3 +2,5 @@ testing.py
 /.vscode
 /FlaskAbstracts/venv
 /JinjaAbstracts/venv
+/wxPythonAbstracts/venv
+/PyGameAbstracts/venv
