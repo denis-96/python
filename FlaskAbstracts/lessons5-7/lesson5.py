@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template, request
 
-app = Flask(__name__, template_folder='templates/lesson5-7')
+app = Flask(__name__)
 
 menu = [{"name": "Установка", "url": "install-flask"},
         {"name": "Первое приложение", "url": "first-app"},

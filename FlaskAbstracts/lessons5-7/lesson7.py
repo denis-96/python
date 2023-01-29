@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template, request, flash, session, url_for, redirect, abort
 
-app = Flask(__name__, template_folder='templates/lesson5-7')
+app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'jhljheovfefk349f8fj32'
 

@@ -13,7 +13,7 @@
 
 from flask import Flask, render_template, request, flash
 
-app = Flask(__name__, template_folder='templates/lesson5-7')
+app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'fdgdfgdfggf786hfg6hfg6h7f'
 
