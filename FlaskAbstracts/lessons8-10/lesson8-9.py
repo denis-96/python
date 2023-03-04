@@ -13,13 +13,16 @@ SECRET_KEY = 'ddwdwj5438vzjk9rwdhfs'
 USERNAME = 'admin'
 PASSWORD = '123'
 
+
 # Создаем само приложение и загружаем конфигурацию из текущего модуля:
 app = Flask(__name__)
 app.config.from_object(__name__)
 
+
 # Переопределим в конфигурации значение DATABASE, расположив БД в текущем каталоге приложения:
 app.config.update({'DATABASE': f'{os.path.join(app.root_path, "flsite.db")}'})
 # или app.config.update(dict(DATABASE=os.path.join(app.root_path, 'flsite.db')))
+
 
 def connect_db():
     # Создаём соединение с базой данных
@@ -27,6 +30,7 @@ def connect_db():
     # Задание представления записей из базы данных не в виде кортежей, а в виде словаря
     connection.row_factory = sqlite3.Row
     return connection
+
 
 # Функция для создания начальной БД с небором необходимых таблиц
 def create_db():
@@ -55,6 +59,7 @@ def index():
     # db = connect_db()
     dbase = FDataBase(get_db())
     return render_template('index.html', menu=dbase.getMenu(), title='Главная страница', posts=dbase.getPostsAnonce())
+
 
 @app.route('/add_post', methods=['POST', 'GET'])
 def add_post():
