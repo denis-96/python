@@ -1,9 +1,6 @@
 testing.py
 /.vscode
-/FlaskAbstracts/venv
-/JinjaAbstracts/venv
-/wxPythonAbstracts/venv
-/PyGameAbstracts/venv
-/AiogramAbstracts/venv
+**/venv
+**/__pycache__
 /AiogramAbstracts/bot_run.bat
-/SQLAlchemy/venv
+
