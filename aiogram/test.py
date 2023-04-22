@@ -5,7 +5,7 @@ from data_base import DataBase
 
 
 
-bot = Bot('5794803199:AAETD1S591Un1ZDN69ezdC3RZqR5P-qFoDo')
+bot = Bot('token')
 dp = Dispatcher(bot)
 dbase = DataBase()
 
