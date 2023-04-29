@@ -4,7 +4,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from data_base import DataBase
 
 
-bot = Bot("token")
+bot = Bot("bot token")
 dp = Dispatcher(bot)
 dbase = DataBase()
 
